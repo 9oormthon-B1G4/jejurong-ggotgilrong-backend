@@ -55,6 +55,7 @@ public class GuestBookService {
                 .author(AUTHOR)
                 .content(guestBookRequest.getContent())
                 .busStop(busStop)
+                .route(busStop.getRoute())
                 .build();
         guestBookRepository.save(guestBook);
     }
