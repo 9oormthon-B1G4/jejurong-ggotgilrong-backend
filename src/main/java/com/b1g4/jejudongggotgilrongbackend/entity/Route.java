@@ -20,6 +20,8 @@ import java.util.List;
 public class Route extends BaseEntity {
 
     private String name;
+    private String number;
+    private String description;
 
     @Builder.Default
     @OneToMany(mappedBy = "route", cascade = CascadeType.MERGE)
