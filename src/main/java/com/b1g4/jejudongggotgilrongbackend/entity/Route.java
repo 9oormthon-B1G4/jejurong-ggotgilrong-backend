@@ -3,6 +3,8 @@ package com.b1g4.jejudongggotgilrongbackend.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +14,8 @@ import java.util.List;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AttributeOverride(name = "id", column = @Column(name = "route_id"))
+@SQLDelete(sql = "UPDATE route SET id_deleted = true WHERE route_id=?")
+@Where(clause = "is_deleted = false")
 @Entity
 public class Route extends BaseEntity {
 
