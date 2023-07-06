@@ -25,6 +25,6 @@ public class Place extends BaseEntity {
     private String url;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "bus_stop_id")
-    private BusStop busStop;
+    @JoinColumn(name = "route_id")
+    private Route route;
 }
