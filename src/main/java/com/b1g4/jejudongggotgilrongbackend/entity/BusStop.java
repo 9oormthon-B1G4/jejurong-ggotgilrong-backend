@@ -16,6 +16,8 @@ import java.util.List;
 public class BusStop extends BaseEntity {
 
     private String name;
+    private double latitude;
+    private double longitude;
 
     @Builder.Default
     @OneToMany(mappedBy = "busStop", cascade = CascadeType.MERGE)
