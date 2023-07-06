@@ -19,7 +19,6 @@ import java.util.List;
 @Service
 public class RouteService {
 
-    private static final int GUEST_BOOK_PREVIEW_COUNT = 5;
     private static final int RECOMMENDED_PLACE_COUNT = 15;
 
     private final RouteRepository routeRepository;
@@ -61,9 +60,8 @@ public class RouteService {
                                 .guestBookCount(busStop.getGuestBookCount())
                                 .build())
                         .toList())
-                .guestBookPreviewResponses(guestBookRepository.findByRouteIdOrderByCreatedDateDesc(routeId)
+                .guestBookPreviewResponses(guestBookRepository.findTop5ByRouteIdOrderByCreatedDateDesc(routeId)
                         .stream()
-                        .limit(GUEST_BOOK_PREVIEW_COUNT)
                         .map(guestBook -> GuestBookPreviewResponse.builder()
                                 .busStopId(guestBook.getBusStop().getId())
                                 .busStopName(guestBook.getBusStop().getName())
