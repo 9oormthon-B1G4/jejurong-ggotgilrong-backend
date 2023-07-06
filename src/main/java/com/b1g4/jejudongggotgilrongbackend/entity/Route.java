@@ -26,4 +26,12 @@ public class Route extends BaseEntity {
     @Builder.Default
     @OneToMany(mappedBy = "route", cascade = CascadeType.MERGE)
     private List<BusStopRoute> busStopRoutes = new ArrayList<>();
+
+    @Builder.Default
+    @OneToMany(mappedBy = "route", cascade = CascadeType.MERGE)
+    private List<Place> places = new ArrayList<>();
+
+    @Builder.Default
+    @OneToMany(mappedBy = "route", cascade = CascadeType.MERGE)
+    private List<GuestBook> guestBooks = new ArrayList<>();
 }
