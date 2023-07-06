@@ -1,7 +1,6 @@
 package com.b1g4.jejudongggotgilrongbackend.service;
 
 import com.b1g4.jejudongggotgilrongbackend.dto.*;
-import com.b1g4.jejudongggotgilrongbackend.entity.BusStopRoute;
 import com.b1g4.jejudongggotgilrongbackend.entity.Route;
 import com.b1g4.jejudongggotgilrongbackend.entity.error.ApplicationError;
 import com.b1g4.jejudongggotgilrongbackend.entity.error.NotFoundException;
@@ -33,9 +32,8 @@ public class RouteService {
                         .routeId(route.getId())
                         .name(route.getName())
                         .number(route.getNumber())
-                        .busStopResponses(route.getBusStopRoutes()
+                        .busStopResponses(route.getBusStops()
                                 .stream()
-                                .map(BusStopRoute::getBusStop)
                                 .map(busStop -> BusStopResponse.builder()
                                         .busStopId(busStop.getId())
                                         .name(busStop.getName())
@@ -50,9 +48,8 @@ public class RouteService {
         Route route = routeRepository.findById(routeId)
                 .orElseThrow(() -> new NotFoundException(ApplicationError.ROUTE_NOT_FOUND));
         return RouteDetailResponse.builder()
-                .busStopMapResponses(route.getBusStopRoutes()
+                .busStopMapResponses(route.getBusStops()
                         .stream()
-                        .map(BusStopRoute::getBusStop)
                         .map(busStop -> BusStopMapResponse.builder()
                                 .name(busStop.getName())
                                 .latitude(busStop.getLatitude())

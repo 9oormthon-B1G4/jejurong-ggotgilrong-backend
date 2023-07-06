@@ -23,9 +23,9 @@ public class BusStop extends BaseEntity {
     private double latitude;
     private double longitude;
 
-    @Builder.Default
-    @OneToMany(mappedBy = "busStop", cascade = CascadeType.MERGE)
-    private List<BusStopRoute> busStopRoutes = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "route_id")
+    private Route route;
 
     @Builder.Default
     @OneToMany(mappedBy = "busStop", cascade = CascadeType.MERGE)
