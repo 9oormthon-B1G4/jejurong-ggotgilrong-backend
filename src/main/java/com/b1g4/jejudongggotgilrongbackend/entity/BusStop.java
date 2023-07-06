@@ -31,7 +31,7 @@ public class BusStop extends BaseEntity {
     @OneToMany(mappedBy = "busStop", cascade = CascadeType.MERGE)
     private List<GuestBook> guestBooks = new ArrayList<>();
 
-    @Builder.Default
-    @OneToMany(mappedBy = "busStop", cascade = CascadeType.MERGE)
-    private List<Place> places = new ArrayList<>();
+    public int getGuestBookCount() {
+        return guestBooks.size();
+    }
 }
