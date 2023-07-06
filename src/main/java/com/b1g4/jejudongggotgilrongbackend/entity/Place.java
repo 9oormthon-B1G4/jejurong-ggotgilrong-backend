@@ -19,6 +19,7 @@ import org.hibernate.annotations.Where;
 @Entity
 public class Place extends BaseEntity {
 
+    private String image;
     private String name;
     private String address;
     private String description;
