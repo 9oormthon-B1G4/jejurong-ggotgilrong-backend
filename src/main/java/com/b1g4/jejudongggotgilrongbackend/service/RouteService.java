@@ -19,6 +19,9 @@ import java.util.List;
 @Service
 public class RouteService {
 
+    private static final int GUEST_BOOK_PREVIEW_COUNT = 5;
+    private static final int RECOMMENDED_PLACE_COUNT = 15;
+
     private final RouteRepository routeRepository;
     private final GuestBookRepository guestBookRepository;
     private final PlaceRepository placeRepository;
@@ -60,6 +63,7 @@ public class RouteService {
                         .toList())
                 .guestBookPreviewResponses(guestBookRepository.findByRouteIdOrderByCreatedDateDesc(routeId)
                         .stream()
+                        .limit(GUEST_BOOK_PREVIEW_COUNT)
                         .map(guestBook -> GuestBookPreviewResponse.builder()
                                 .busStopId(guestBook.getBusStop().getId())
                                 .busStopName(guestBook.getBusStop().getName())
@@ -68,7 +72,7 @@ public class RouteService {
                         .toList())
                 .recommendedPlaceResponses(placeRepository.findByRouteId(routeId)
                         .parallelStream()
-                        .limit(15)
+                        .limit(RECOMMENDED_PLACE_COUNT)
                         .map(place -> RecommendedPlaceResponse.builder()
                                 .image(place.getImage())
                                 .name(place.getName())
