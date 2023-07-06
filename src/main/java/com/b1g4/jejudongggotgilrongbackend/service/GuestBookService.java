@@ -8,7 +8,6 @@ import com.b1g4.jejudongggotgilrongbackend.entity.error.ApplicationError;
 import com.b1g4.jejudongggotgilrongbackend.entity.error.NotFoundException;
 import com.b1g4.jejudongggotgilrongbackend.repository.BusStopRepository;
 import com.b1g4.jejudongggotgilrongbackend.repository.GuestBookRepository;
-import com.b1g4.jejudongggotgilrongbackend.repository.RouteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -51,7 +50,7 @@ public class GuestBookService {
     @Transactional
     public void create(Long busStopId, GuestBookRequest guestBookRequest) {
         BusStop busStop = busStopRepository.findById(busStopId)
-                .orElseThrow(() -> new NotFoundException(ApplicationError.ROUTE_NOT_FOUND));
+                .orElseThrow(() -> new NotFoundException(ApplicationError.BUS_STOP_NOT_FOUND));
         GuestBook guestBook = GuestBook.builder()
                 .author(AUTHOR)
                 .content(guestBookRequest.getContent())
