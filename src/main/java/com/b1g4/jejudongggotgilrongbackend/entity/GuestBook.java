@@ -23,6 +23,6 @@ public class GuestBook extends BaseEntity {
     private String content;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "bust_stop_id")
+    @JoinColumn(name = "bus_stop_id")
     private BusStop busStop;
 }
