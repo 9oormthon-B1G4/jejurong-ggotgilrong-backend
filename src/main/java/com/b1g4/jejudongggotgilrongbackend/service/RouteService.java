@@ -74,7 +74,7 @@ public class RouteService {
                         .map(place -> RecommendedPlaceResponse.builder()
                                 .image(place.getImage())
                                 .name(place.getName())
-                                .address(place.getAddress())
+                                .busStopName(place.getNearByBusStop())
                                 .description(place.getDescription())
                                 .url(place.getUrl())
                                 .build())

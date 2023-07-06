@@ -10,7 +10,7 @@ public class RecommendedPlaceResponse {
 
     private String image;
     private String name;
-    private String address;
     private String description;
+    private String busStopName;
     private String url;
 }
