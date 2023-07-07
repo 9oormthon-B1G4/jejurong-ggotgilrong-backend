@@ -1,1 +1,1 @@
-# jejudong-ggotgilrong-backend
+# jejudong-ggotgilrong

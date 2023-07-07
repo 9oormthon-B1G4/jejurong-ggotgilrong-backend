@@ -36,5 +36,5 @@ tasks.named('test') {
 }
 
 bootJar {
-    mainClass = 'com.b1g4.JejudongGgotgilrongBackendApplication'
+    mainClass = 'com.b1g4.JejudongGgotgilrongApplication'
 }

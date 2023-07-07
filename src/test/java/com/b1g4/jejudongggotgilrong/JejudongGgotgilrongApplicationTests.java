@@ -1,4 +1,4 @@
-package com.b1g4.jejudongggotgilrongbackend;
+package com.b1g4.jejudongggotgilrong;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -4,7 +4,6 @@ import com.b1g4.jejudongggotgilrong.dto.*;
 import com.b1g4.jejudongggotgilrong.entity.error.ApplicationError;
 import com.b1g4.jejudongggotgilrong.entity.error.NotFoundException;
 import com.b1g4.jejudongggotgilrong.repository.GuestBookRepository;
-import com.b1g4.jejudongggotgilrongbackend.dto.*;
 import com.b1g4.jejudongggotgilrong.entity.Route;
 import com.b1g4.jejudongggotgilrong.repository.PlaceRepository;
 import com.b1g4.jejudongggotgilrong.repository.RouteRepository;
