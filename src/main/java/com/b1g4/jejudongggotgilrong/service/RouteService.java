@@ -1,10 +1,10 @@
 package com.b1g4.jejudongggotgilrong.service;
 
 import com.b1g4.jejudongggotgilrong.dto.*;
+import com.b1g4.jejudongggotgilrong.entity.Route;
 import com.b1g4.jejudongggotgilrong.entity.error.ApplicationError;
 import com.b1g4.jejudongggotgilrong.entity.error.NotFoundException;
 import com.b1g4.jejudongggotgilrong.repository.GuestBookRepository;
-import com.b1g4.jejudongggotgilrong.entity.Route;
 import com.b1g4.jejudongggotgilrong.repository.PlaceRepository;
 import com.b1g4.jejudongggotgilrong.repository.RouteRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,8 +17,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 public class RouteService {
-
-    private static final int RECOMMENDED_PLACE_COUNT = 15;
 
     private final RouteRepository routeRepository;
     private final GuestBookRepository guestBookRepository;
@@ -66,8 +64,7 @@ public class RouteService {
                                 .build())
                         .toList())
                 .recommendedPlaceResponses(placeRepository.findByRouteId(routeId)
-                        .parallelStream()
-                        .limit(RECOMMENDED_PLACE_COUNT)
+                        .stream()
                         .map(place -> RecommendedPlaceResponse.builder()
                                 .image(place.getImage())
                                 .name(place.getName())
@@ -75,7 +72,8 @@ public class RouteService {
                                 .description(place.getDescription())
                                 .url(place.getUrl())
                                 .build())
-                        .toList())
+                        .toList()
+                )
                 .build();
     }
 }
