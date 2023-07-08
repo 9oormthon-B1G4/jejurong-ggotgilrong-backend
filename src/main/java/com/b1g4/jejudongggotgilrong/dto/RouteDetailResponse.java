@@ -10,7 +10,6 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class RouteDetailResponse {
 
-    private String description;
     private List<BusStopMapResponse> busStopMapResponses;
     private List<GuestBookPreviewResponse> guestBookPreviewResponses;
     private List<RecommendedPlaceResponse> recommendedPlaceResponses;

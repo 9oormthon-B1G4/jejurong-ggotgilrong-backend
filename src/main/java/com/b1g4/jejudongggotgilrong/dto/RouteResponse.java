@@ -13,5 +13,6 @@ public class RouteResponse {
     private Long routeId;
     private String name;
     private String number;
+    private String description;
     private List<BusStopResponse> busStopResponses;
 }

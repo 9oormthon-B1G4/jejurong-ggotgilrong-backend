@@ -30,6 +30,7 @@ public class RouteService {
                         .routeId(route.getId())
                         .name(route.getName())
                         .number(route.getNumber())
+                        .description(route.getDescription())
                         .busStopResponses(route.getBusStops()
                                 .stream()
                                 .map(busStop -> BusStopResponse.builder()
@@ -46,7 +47,6 @@ public class RouteService {
         Route route = routeRepository.findById(routeId)
                 .orElseThrow(() -> new NotFoundException(ApplicationError.ROUTE_NOT_FOUND));
         return RouteDetailResponse.builder()
-                .description(route.getDescription())
                 .busStopMapResponses(route.getBusStops()
                         .stream()
                         .map(busStop -> BusStopMapResponse.builder()
